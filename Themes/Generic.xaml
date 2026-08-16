@@ -1,0 +1,151 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="using:ShimizuToolkit.HotkeyWinUI.Controls"
+                    xmlns:ui="using:CommunityToolkit.WinUI.Controls">
+
+    <Style TargetType="local:KeyCaptureControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:KeyCaptureControl">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"
+                            Padding="12,8"
+                            MinWidth="150"
+                            MinHeight="36">
+                        <Grid>
+                            <local:KeyBlockPanel x:Name="PART_KeyBlockPanel" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background"
+                Value="{ThemeResource SubtleFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Foreground"
+                Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="IsTabStop"
+                Value="True" />
+        <Setter Property="TabNavigation"
+                Value="Once" />
+        <Setter Property="UseSystemFocusVisuals"
+                Value="True" />
+    </Style>
+
+    <Style TargetType="local:KeyBlock">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:KeyBlock">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{ThemeResource AccentAAFillColorSecondaryBrush}"
+                            BorderThickness="0 0 0 1"
+                            CornerRadius="8 8 8 8">
+                        <RelativePanel Background="{ThemeResource AccentAAFillColorDefaultBrush}"
+                                       Padding="16 8">
+                            <Grid x:Name="PART_KeyNamePanel"
+                                  RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                  RelativePanel.AlignVerticalCenterWithPanel="True"
+                                  VerticalAlignment="Center"></Grid>
+                            <FontIcon x:Name="PART_LeftArrow"
+                                      Glyph="&#xE96F;"
+                                      FontSize="11"
+                                      Visibility="Visible"
+                                      Margin="-8 0 0 0"
+                                      Foreground="{ThemeResource TextOnAccentFillColorDefault}"
+                                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                                      RelativePanel.LeftOf="PART_KeyNamePanel" />
+                            <FontIcon x:Name="PART_UpArrow"
+                                      Glyph="&#xE96D;"
+                                      FontSize="11"
+                                      Visibility="Collapsed"
+                                      Margin="0 0 0.34 0"
+                                      Foreground="{ThemeResource TextOnAccentFillColorDefault}"
+                                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                      RelativePanel.Above="PART_KeyNamePanel" />
+                            <FontIcon x:Name="PART_RightArrow"
+                                      Glyph="&#xE970;"
+                                      FontSize="11"
+                                      Margin="0 0 -8 0"
+                                      Visibility="Collapsed"
+                                      Foreground="{ThemeResource TextOnAccentFillColorDefault}"
+                                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                                      RelativePanel.RightOf="PART_KeyNamePanel" />
+                            <FontIcon x:Name="PART_DownArrow"
+                                      Glyph="&#xE971;"
+                                      FontSize="11"
+                                      Visibility="Collapsed"
+                                      Margin="0 0 0.34 0"
+                                      Foreground="{ThemeResource TextOnAccentFillColorDefault}"
+                                      RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                      RelativePanel.Below="PART_KeyNamePanel" />
+                            <TextBlock x:Name="PART_SpecialSourceTextBlock"
+                                       Foreground="{ThemeResource TextOnAccentFillColorDefault}"
+                                       TextAlignment="Center"
+                                       FontWeight="Bold"
+                                       Visibility="Collapsed" />
+                        </RelativePanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:KeyBlockPanel">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:KeyBlockPanel">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ui:WrapPanel x:Name="PART_KeyBlockWrapPanel"
+                                      Orientation="Horizontal"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      HorizontalSpacing="4"
+                                      VerticalSpacing="16" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:KeyBlockTextPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:KeyBlockTextPresenter">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="PART_TextBlock"
+                                   TextAlignment="Center"
+                                   Foreground="{ThemeResource TextOnAccentFillColorDefault}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:KeyBlockFontIconPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:KeyBlockFontIconPresenter">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <FontIcon x:Name="PART_FontIcon"
+                                  Foreground="{ThemeResource TextOnAccentFillColorDefault}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
