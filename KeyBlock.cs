@@ -146,7 +146,7 @@ namespace ShimizuToolkit.HotkeyWinUI.Controls
             {
                 KeyBlockFontIconPresenter p = new()
                 {
-                    Glyph = "\uE70B"
+                    Glyph = "\uE76B"
                 };
                 _keyNamePanel.Children.Add(p);
             }
@@ -154,7 +154,7 @@ namespace ShimizuToolkit.HotkeyWinUI.Controls
             {
                 KeyBlockFontIconPresenter p = new()
                 {
-                    Glyph = "\uE70C"
+                    Glyph = "\uE76C"
                 };
                 _keyNamePanel.Children.Add(p);
             }
